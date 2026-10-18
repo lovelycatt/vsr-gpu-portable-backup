@@ -1,79 +1,88 @@
-# VSR GPU Portable Backup
+# Video Subtitle Remover v1.4.0 GPU 便携修复版
 
-Windows 64-bit portable backup of **Video Subtitle Remover v1.4.0**, rebuilt and repaired for NVIDIA CUDA acceleration.
+这是基于 YaoFANGUK 原项目修改的 Windows 64 位 NVIDIA GPU 便携版，主要用于个人备份和分享。
 
-## Source
+## 项目来源
 
-This project is based on the following upstream project:
+- 来源仓库：https://github.com/YaoFANGUK/video-subtitle-remover
+- 原项目：Video Subtitle Remover（硬字幕去除器）v1.4.0
+- 原作者：YaoFANGUK
 
-- Upstream: https://github.com/YaoFANGUK/video-subtitle-remover
-- Upstream version: Video Subtitle Remover v1.4.0
-- Upstream author: YaoFANGUK
+本仓库是非官方修改版，不代表原作者发布或背书。原项目的源代码、许可证、文档和官方版本请以来源仓库为准；原项目版权和署名归原作者及贡献者所有。
 
-This repository is an independent backup of a modified portable build. It is not an official upstream release and is not endorsed by the upstream author. All original project rights remain with the upstream author and contributors.
+## 为什么有这个版本
 
-## What Is Included
+我看到原作者有一段时间没有更新和修复，而自己最近需要在电脑上使用这个工具，因此使用 Codex 对本地便携版进行了修复。
 
-- Windows 64-bit portable package.
-- PyTorch CUDA build and bundled runtime dependencies.
-- No Python, PyTorch, CUDA Toolkit, or FFmpeg installation required.
-- GPU inference on compatible NVIDIA graphics cards.
-- FFmpeg processes hidden, with no console windows during processing.
-- Drag-and-drop hint and drag-and-drop input.
-- Output written beside the source video without overwriting it.
-- Existing output names are never overwritten; `_no_sub_1`, `_no_sub_2`, and later names are used when needed.
-- Audio is converted to AAC 192 kbps and merged into the result.
+这个版本只是把已经能在本机使用的构建分享给有需要的网友。修复过程比较耗时，我无法承诺继续维护、适配更多电脑或修复其他问题。
 
-## Supported Computers
+如果你的电脑无法运行或遇到其他兼容问题，可能需要自行使用 AI Agent 工具排查和修复，例如 Codex、WorkBuddy 等。下载和使用前请先阅读下面的适用电脑与注意事项。
 
-Recommended:
+## 适用电脑
 
-- Windows 11 64-bit.
-- NVIDIA RTX 20, 30, 40, or 50 series graphics card.
-- A current NVIDIA driver supporting CUDA 12.8.
-- At least 4 GB of available GPU memory for the tested configuration.
-- Enough free disk space for the source video, temporary files, and the output video.
+推荐环境：
 
-The package was tested on:
+- Windows 11 64 位。
+- NVIDIA RTX 20、30、40 或 50 系列显卡。
+- NVIDIA 驱动支持 CUDA 12.8。
+- 建议至少 4 GB 可用显存。
+- 有足够磁盘空间存放源视频、临时文件和输出视频。
 
-- Windows 64-bit.
-- NVIDIA GeForce RTX 3060 Laptop GPU.
-- PyTorch 2.11.0 with CUDA 12.8.
-- A 362-frame, 832 x 1440 input video.
-- Successful processing at 100 percent, with AAC stereo audio in the output.
+已在以下环境完成测试：
 
-Not supported directly:
+- Windows 64 位。
+- NVIDIA GeForce RTX 3060 Laptop GPU。
+- PyTorch 2.11.0，CUDA 12.8。
+- 362 帧、832 x 1440 测试视频。
+- 完整处理至 100%，输出视频带 AAC 双声道音频。
 
-- macOS, Linux, Windows ARM, or 32-bit Windows.
-- AMD or Intel graphics as the CUDA inference device.
-- Computers without a compatible NVIDIA graphics card.
+不支持或不能保证可用：
 
-## Download
+- macOS、Linux、Windows ARM 和 32 位 Windows。
+- 将 AMD 或 Intel 显卡作为 CUDA 推理设备。
+- 没有兼容 NVIDIA 显卡的电脑。
+- 与测试环境差异较大的系统、驱动或显卡组合。
 
-Download all release split parts and place them in the same folder. Then open the first part with 7-Zip and extract the complete archive.
+## 本版包含的修复
 
-Do not run only the launcher from the ZIP. Extract the complete package first, then run:
+- 使用 CUDA 版 PyTorch 和适用于 NVIDIA GPU 的推理路径。
+- 处理视频时不再弹出 FFmpeg 黑色控制台窗口。
+- 修复无控制台启动时进度条导致任务停在 1% 的问题。
+- 修复音频合并失败后仍误报成功的问题。
+- 输出 AAC 192 kbps 双声道音频。
+- 支持将视频拖入窗口，空预览区域会显示拖放提示。
+- 输出文件保存到源视频所在文件夹。
+- 默认文件名使用 `_no_sub`；已有同名文件时自动追加序号，不覆盖原视频或旧结果。
+
+## 下载与使用
+
+1. 打开本仓库的 Release 页面。
+2. 下载全部三个 `.part-001`、`.part-002`、`.part-003` 分卷。
+3. 将三个分卷放在同一个文件夹，不要修改文件名。
+4. 按 `JOIN_AND_EXTRACT_zh-CN.txt` 的说明合并分卷。
+5. 校验完整 ZIP 的 SHA-256。
+6. 解压完整软件包后，双击 `启动 GPU 版.exe`。
+
+不要只从 ZIP 中运行启动器，也不要只解压其中一个分卷。必须使用完整解压后的文件夹。
+
+输出默认保存在源视频所在文件夹，文件名为：
 
 ```text
-启动 GPU 版.exe
+原文件名_no_sub.mp4
 ```
 
-The source file directory must allow creation of new files. Results are written beside the source video as:
+## 文件校验
 
-```text
-video_name_no_sub.mp4
-```
-
-## SHA-256
-
-The SHA-256 of the complete portable ZIP is:
+合并后完整 ZIP 的 SHA-256：
 
 ```text
 BC2F5E0205E51EF417BDE4B858557DCC59372A0A4EDC2E4E2BE4143D733B295B
 ```
 
-After joining the split parts, verify the reconstructed ZIP against this checksum before extracting it.
+请在解压前核对校验值。
 
-## Backup and Distribution
+## 注意事项
 
-This repository is used as a personal backup and public download location for this portable build. If the upstream project changes or its license requirements change, follow the upstream terms.
+自制启动器和便携运行时可能触发杀毒软件误报，请自行确认来源并扫描文件。源视频所在目录必须允许创建新文件。本版本不会覆盖原视频或已有结果。
+
+本仓库用于个人备份和公开分享。原作者后续如有更新，建议优先查看原项目的官方版本和说明。
