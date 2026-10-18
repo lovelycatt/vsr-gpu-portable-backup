@@ -1,9 +1,11 @@
-# Source Notice
+# 来源与声明
 
-This portable build is derived from:
+本便携修复版基于以下原项目：
 
 https://github.com/YaoFANGUK/video-subtitle-remover
 
-Upstream version: Video Subtitle Remover v1.4.0.
+原项目：Video Subtitle Remover（硬字幕去除器）v1.4.0。
 
-This is an unofficial modified backup. It is not published, sponsored, or endorsed by the upstream author. Refer to the upstream repository for its source code, license, documentation, and official releases.
+本版本是非官方修改版，不是原作者发布、赞助或背书的版本。原项目的源代码、许可证、文档和官方版本请以来源仓库为准；原项目版权和署名归原作者及贡献者所有。
+
+本版本由分享者使用 Codex 在本机环境中修复和测试，仅作为个人备份与分享。分享者不承诺持续维护或适配所有电脑。
