@@ -72,10 +72,10 @@
 
 Release 页面还会显示 `Source code (zip)` 和 `Source code (tar.gz)`。它们是 GitHub 自动生成的源码归档，**不是**这个 Windows GPU 便携软件，不需要下载。
 
-### 需要下载的文件
+### 下载文件
 
-- 三个 `part*.rar` 分卷。
-- `VSR...zip.sha256.txt`：完整压缩包的校验值。
+- **必需：**三个 `part*.rar` 分卷，必须全部下载。
+- **可选：**`VSR...zip.sha256.txt`，用于核对完整 ZIP 是否下载无误；不下载也可以正常解压和使用。
 
 ### 操作步骤
 
